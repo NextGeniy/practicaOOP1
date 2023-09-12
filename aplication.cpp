@@ -13,43 +13,45 @@ TApplication::TApplication()
 int TApplication::exec()
 {
     int ch;
-    int size=3;
-    Matrix matrix(size);
+
+    Matrix matrix;
+
     while(true)
     {
         ch = menu();
         switch (ch) {
         case 1:
         {
-            matrix.EnterMatrix(size,matrix.Arr);
+            matrix.EnterMatrix(matrix.GetSize(),matrix.GetArr());
         }
         break;
         case 2:
         {
-            cout<<"det "<<matrix.DetMatrix(matrix.Arr)<<endl;
+            cout<<"\nDet= "<<matrix.DetMatrix(matrix.GetArr())<<endl<<endl;
         }
             break;
-      /*  case 3:
-
-
-
+        case 3:
+            cout<<endl<<"Transponed: \n";
+            matrix.TransponedMatrix(matrix.GetSize(),matrix.GetArr());
+            cout<<endl;
             break;
         case 4:
-
-
-
-            break;*/
+        {
+            int r=matrix.RankMatrix(matrix.GetSize(),matrix.GetArr());
+            cout<<"\nRank= " <<r<<endl<<endl;;
+        }
+            break;
             case 5:
         {
 
-            matrix.ShowMatrix(size,matrix.Arr);
+            matrix.ShowMatrix(matrix.GetSize(),matrix.GetArr());
         }
         break;
 
         case 0:
 
-            return 0;
-            default:cout<<"Wrong number, try again!"<<endl;
+            return 0.0;
+        default:cout<<"Wrong number, try again!"<<endl;
             break;
         }
     }
@@ -58,12 +60,12 @@ int TApplication::exec()
 int TApplication::menu()
 {
     int ch;
-    cout<<"1 - enter values of matrix "<<endl<<"> ";
-    cout<<"2 - count determinant and result"<<endl<<"> ";
-    cout<<"3 - transponed matrix"<<endl<<"> ";
-    cout<<"4 - show rang"<<endl<<"> ";
-    cout<<"5 - show matrix"<<endl<<"> ";
-    cout<<"0 - exit"<<endl<<"> ";
+    cout<<"> 1 - Enter values of matrix "<<endl<<"> ";
+    cout<<"2 - Count determinant and result"<<endl<<"> ";
+    cout<<"3 - Transponed matrix"<<endl<<"> ";
+    cout<<"4 - Show rang"<<endl<<"> ";
+    cout<<"5 - Show matrix"<<endl<<"> ";
+    cout<<"0 - Exit"<<endl<<"> ";
     cin>>ch;
     return ch;
 }

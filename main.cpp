@@ -1,16 +1,10 @@
 #include "aplication.h"
 #include <clocale>
-
+#include <windows.h>
 int main()
-{
-    setlocale(LC_ALL,"rus");
+{   setlocale(LC_ALL, "PL_pl.UTF-8");
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
     TApplication a;
     return a.exec();
-    /* cout<<"choose size of matrix"<<endl;
-    cin>>size;
-
-    int Matrix::Arr
-        {
-
-        };*/
 }

@@ -5,15 +5,17 @@
 using namespace std;
 class Matrix
 {
-public:
-
     number **Arr;
-    int size;
-    Matrix(int size);
+    int size=3;
+public:
+    Matrix();
+    number** GetArr();
+    int GetSize();
     void ShowMatrix(int size,number **Arr);
     void EnterMatrix(int size,number **Arr);
     number DetMatrix(number **Arr);
-    //friend ostream& operator<<(ostream&,Matrix&);
+    int RankMatrix(int size,number **Arr);
+    void TransponedMatrix(int size,number **Arr);
     ~Matrix();
 };
 #endif // MATRIX_H
